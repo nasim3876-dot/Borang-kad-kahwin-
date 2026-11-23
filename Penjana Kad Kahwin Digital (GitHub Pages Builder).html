@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Penjana Kad Kahwin Digital — GitHub Pages Builder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    /* Custom scrollbar for builder & phone frame */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(156, 163, 175, 0.4);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(156, 163, 175, 0.65);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Top Header -->
+  <header class="bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 shadow-lg shadow-amber-500/20">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold tracking-tight text-white">Penjana Kad Kahwin Digital</h1>
+          <p class="text-xs text-slate-400">Bina &amp; eksport terus ke <span class="text-amber-400 font-medium">GitHub Pages</span> secara percuma</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="btnGuideModal" type="button" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-medium transition flex items-center gap-1.5 border border-slate-700">
+          <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+          </svg>
+          <span class="hidden sm:inline">Panduan GitHub</span>
+          <span class="sm:hidden">Panduan</span>
+        </button>
+
+        <button id="btnCopyCode" type="button" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 text-xs sm:text-sm font-semibold transition flex items-center gap-1.5 border border-amber-500/30">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184" />
+          </svg>
+          <span>Salin Kod HTML</span>
+        </button>
+
+        <button id="btnDownloadHtml" type="button" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-xs sm:text-sm font-bold shadow-lg shadow-amber-500/20 transition flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
+          <span>Muat Turun index.html</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-slate-800 border border-amber-500/50 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 text-sm">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+      <span id="toastMsg">Tindakan berjaya!</span>
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+    <!-- PANEL KIRI: BORANG INPUT -->
+    <section class="lg:col-span-7 space-y-5">
+
+      <!-- 1. Pilihan Tema Reka Bentuk -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-base font-bold text-white flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center text-xs font-bold">1</span>
+              Pilihan Tema Mewah &amp; Eksklusif
+            </h2>
+            <p class="text-xs text-slate-400 mt-0.5">Pilih palet warna dan gaya tipografi kad anda</p>
+          </div>
+          <span id="activeThemeBadge" class="text-xs font-medium px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30">Royal Noir &amp; Gold</span>
+        </div>
+
+        <div id="themeSelectorGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          <!-- Theme cards rendered by JS -->
+        </div>
+      </div>
+
+      <!-- 2. Butiran Pengantin -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl">
+        <h2 class="text-base font-bold text-white flex items-center gap-2 mb-4">
+          <span class="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center text-xs font-bold">2</span>
+          Butiran Pengantin &amp; Keluarga
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Tajuk Majlis</label>
+            <input type="text" id="inTitle" value="Walimatulurus" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none transition" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Nama Panggilan Pengantin Lelaki</label>
+            <input type="text" id="inGroomShort" value="Adam" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none transition" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Nama Panggilan Pengantin Perempuan</label>
+            <input type="text" id="inBrideShort" value="Hawa" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none transition" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Nama Penuh Pengantin Lelaki</label>
+            <input type="text" id="inGroomFull" value="Muhammad Adam Bin Dato' Ahmad" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none transition" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Nama Penuh Pengantin Perempuan</label>
+            <input type="text" id="inBrideFull" value="Nur Hawa Binti Haji Ibrahim" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none transition" />
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Nama Ibu Bapa Pengantin</label>
+            <textarea id="inParents" rows="2" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2 text-sm text-white outline-none transition">Dato' Ahmad Bin Hassan &amp; Datin Aminah Binti Yusof</textarea>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Ayat Jemputan</label>
+            <textarea id="inInviteText" rows="2" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2 text-sm text-white outline-none transition">Dengan penuh kesyukuran ke hadrat Ilahi, kami menjemput Dato' / Datin / Tuan / Puan / Encik / Cik sekeluarga ke majlis perkahwinan putera kami</textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Butiran Tarikh & Masa -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl">
+        <h2 class="text-base font-bold text-white flex items-center gap-2 mb-4">
+          <span class="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center text-xs font-bold">3</span>
+          Tarikh, Masa &amp; Kiraan Detik
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Tarikh Majlis (Date Picker)</label>
+            <input type="date" id="inDate" value="2026-12-20" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none transition" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Waktu Mula &amp; Tamat</label>
+            <input type="text" id="inTimeRange" value="11:00 Pagi – 4:00 Petang" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none transition" />
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Tarikh &amp; Masa Sasaran Kiraan Detik (Countdown)</label>
+            <input type="datetime-local" id="inCountdown" value="2026-12-20T11:00" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none transition" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Lokasi & Peta -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl">
+        <h2 class="text-base font-bold text-white flex items-center gap-2 mb-4">
+          <span class="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center text-xs font-bold">4</span>
+          Lokasi &amp; Pautan Navigasi
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Nama Dewan / Lokasi</label>
+            <input type="text" id="inVenue" value="Grand Ballroom, Bangi Avenue Convention Centre" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none transition" />
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Alamat Penuh</label>
+            <textarea id="inAddress" rows="2" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2 text-sm text-white outline-none transition">Persiaran Bangi Avenue, Taman Bangi Avenue, 43000 Kajang, Selangor</textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Pautan Google Maps</label>
+            <input type="url" id="inGoogleMaps" value="https://maps.google.com/?q=Bangi+Avenue+Convention+Centre" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none transition" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Pautan Waze</label>
+            <input type="url" id="inWaze" value="https://waze.com/ul?q=Bangi+Avenue+Convention+Centre&navigate=yes" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none transition" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Atur Cara Majlis -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-base font-bold text-white flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center text-xs font-bold">5</span>
+            Atur Cara Majlis
+          </h2>
+          <button type="button" id="btnAddSchedule" class="px-3 py-1.5 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 text-xs font-semibold border border-amber-500/30 transition">
+            + Tambah Baris
+          </button>
+        </div>
+
+        <div id="scheduleList" class="space-y-2.5">
+          <!-- Schedule rows injected by JS -->
+        </div>
+      </div>
+
+      <!-- 6. RSVP & Hubungi Keluarga -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl">
+        <h2 class="text-base font-bold text-white flex items-center gap-2 mb-4">
+          <span class="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center text-xs font-bold">6</span>
+          RSVP &amp; Hubungi Keluarga
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">No. WhatsApp RSVP (Format: 6012...)</label>
+            <input type="text" id="inWhatsapp" value="60123456789" placeholder="60123456789" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none transition" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Pautan Google Form RSVP (Pilihan)</label>
+            <input type="url" id="inGoogleForm" placeholder="https://forms.gle/..." class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none transition" />
+          </div>
+        </div>
+
+        <div class="border-t border-slate-800 pt-4">
+          <div class="flex items-center justify-between mb-3">
+            <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Senarai Hubungi Keluarga</label>
+            <button type="button" id="btnAddContact" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition">
+              + Tambah Wakil
+            </button>
+          </div>
+          <div id="contactList" class="space-y-2.5">
+            <!-- Contact rows injected by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Tetapan Tambahan -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl">
+        <h2 class="text-base font-bold text-white flex items-center gap-2 mb-4">
+          <span class="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center text-xs font-bold">7</span>
+          Tetapan Tambahan (Muzik &amp; Doa)
+        </h2>
+
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Pautan Muzik Latar MP3 (URL Pilihan)</label>
+            <input type="url" id="inMusicUrl" placeholder="https://contoh.com/lagu-romantik.mp3" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none transition" />
+            <p class="text-[11px] text-slate-400 mt-1">Nota: Jika anda muat naik fail <code>lagu.mp3</code> ke repositori GitHub yang sama, taipkan <code>lagu.mp3</code> di sini.</p>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1.5">Nota Salam / Doa Pengantin</label>
+            <textarea id="inPrayer" rows="3" class="w-full bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3.5 py-2 text-sm text-white outline-none transition">Ya Allah, berkatilah majlis perkahwinan ini, limpahkanlah baraqah dan rahmat kepada kedua mempelai ini, kurniakanlah mereka zuriat yang soleh dan solehah serta kekalkanlah jodoh mereka hingga ke Jannah. Amin.</textarea>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PANEL KANAN: LIVE MOBILE PREVIEW -->
+    <aside class="lg:col-span-5 lg:sticky lg:top-20 flex flex-col items-center">
+      <div class="w-full flex items-center justify-between mb-3 px-2">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-300">Pratonton Langsung</span>
+        </div>
+        <button type="button" id="btnReplayGate" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 transition font-medium">
+          Ulang Animasi Sampul
+        </button>
+      </div>
+
+      <!-- Smartphone Frame -->
+      <div class="relative w-full max-w-[390px] h-[740px] rounded-[46px] p-3 bg-gradient-to-b from-slate-700 via-slate-800 to-slate-900 shadow-[0_25px_70px_-15px_rgba(0,0,0,0.85)] border border-slate-600/60">
+        <!-- Top Speaker Notch -->
+        <div class="absolute top-3 left-1/2 -translate-x-1/2 w-32 h-5 bg-slate-950 rounded-b-2xl z-30 flex items-center justify-center gap-2">
+          <span class="w-10 h-1 rounded-full bg-slate-800"></span>
+          <span class="w-2 h-2 rounded-full bg-slate-800"></span>
+        </div>
+
+        <!-- Screen Container -->
+        <div id="previewScreen" class="relative w-full h-full rounded-[36px] overflow-hidden bg-black flex flex-col">
+          <iframe id="previewIframe" title="Pratonton Kad Kahwin" class="w-full h-full border-0"></iframe>
+        </div>
+      </div>
+
+      <p class="text-[11px] text-slate-400 text-center mt-3 max-w-xs">
+        Klik <strong>"Buka Kad"</strong> pada skrin telefon untuk melihat animasi pintu gerbang &amp; menguji butang navigasi bawah.
+      </p>
+    </aside>
+
+  </main>
+
+  <!-- Modal Panduan GitHub Pages -->
+  <div id="guideModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+      <button id="btnCloseGuide" type="button" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1.5 rounded-lg bg-slate-800">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <h3 class="text-lg font-bold text-white mb-1">Cara Muat Naik ke GitHub Pages</h3>
+      <p class="text-xs text-slate-400 mb-4">Ikuti 4 langkah mudah ini untuk menerbitkan kad kahwin anda secara percuma:</p>
+
+      <ol class="space-y-3 text-sm text-slate-200">
+        <li class="flex gap-3 bg-slate-950/70 p-3 rounded-xl border border-slate-800">
+          <span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+          <div>
+            <strong class="text-white block">Muat Turun Fail HTML</strong>
+            <span class="text-xs text-slate-400">Klik butang <strong>Muat Turun index.html</strong> di bahagian atas halaman ini.</span>
+          </div>
+        </li>
+        <li class="flex gap-3 bg-slate-950/70 p-3 rounded-xl border border-slate-800">
+          <span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+          <div>
+            <strong class="text-white block">Cipta Repositori Baru di GitHub</strong>
+            <span class="text-xs text-slate-400">Log masuk ke <code>github.com</code>, klik <strong>New repository</strong>, namakan (contoh: <code>adam-hawa</code>) dan pastikan ia ditetapkan sebagai <strong>Public</strong>.</span>
+          </div>
+        </li>
+        <li class="flex gap-3 bg-slate-950/70 p-3 rounded-xl border border-slate-800">
+          <span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+          <div>
+            <strong class="text-white block">Muat Naik Fail <code>index.html</code></strong>
+            <span class="text-xs text-slate-400">Klik <strong>Add file &gt; Upload files</strong>, seret fail <code>index.html</code> (dan fail <code>.mp3</code> jika ada) kemudian klik <strong>Commit changes</strong>.</span>
+          </div>
+        </li>
+        <li class="flex gap-3 bg-slate-950/70 p-3 rounded-xl border border-slate-800">
+          <span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
+          <div>
+            <strong class="text-white block">Aktifkan GitHub Pages</strong>
+            <span class="text-xs text-slate-400">Pergi ke <strong>Settings &gt; Pages</strong>, di bawah <em>Branch</em> pilih <strong>main</strong> &amp; <strong>/ (root)</strong> lalu klik <strong>Save</strong>. Pautan kad anda akan aktif dalam 1–2 minit!</span>
+          </div>
+        </li>
+      </ol>
+
+      <div class="mt-5 flex justify-end">
+        <button id="btnDoneGuide" type="button" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold text-sm transition">
+          Faham, Terima Kasih
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ==========================================
+    // KONFIGURASI 5 TEMA MEWAH & EKSKLUSIF
+    // ==========================================
+    const THEMES = {
+      royalNoir: {
+        id: 'royalNoir',
+        name: 'Royal Noir & Gold',
+        desc: 'Hitam pekat & emas mewah',
+        swatchBg: '#0b0b0d',
+        swatchAccent: '#d4af37',
+        swatchSecondary: '#16161a',
+        vars: {
+          bgPage: '#060608',
+          bgCard: '#0e0e12',
+          bgBox: '#16161d',
+          bgNav: 'rgba(14, 14, 18, 0.94)',
+          textMain: '#f8f5ee',
+          textMuted: '#b8b0a0',
+          accent: '#d4af37',
+          accentLight: '#f3d98b',
+          accentText: '#0b0b0d',
+          border: 'rgba(212, 175, 55, 0.32)',
+          gateBg: 'radial-gradient(circle at center, #1d1a14 0%, #09090b 100%)',
+          patternOpacity: '0.12',
+          patternColor: '%23d4af37'
+        }
+      },
+      roseGold: {
+        id: 'roseGold',
+        name: 'Rose Gold & Ivory',
+        desc: 'Putih gading & keemasan romantik',
+        swatchBg: '#fdf8f5',
+        swatchAccent: '#b76e79',
+        swatchSecondary: '#f6ebe6',
+        vars: {
+          bgPage: '#f3e7e1',
+          bgCard: '#fdf9f6',
+          bgBox: '#ffffff',
+          bgNav: 'rgba(253, 249, 246, 0.95)',
+          textMain: '#3d2c2e',
+          textMuted: '#7c6366',
+          accent: '#b76e79',
+          accentLight: '#dca0a8',
+          accentText: '#ffffff',
+          border: 'rgba(183, 110, 121, 0.28)',
+          gateBg: 'radial-gradient(circle at center, #fffaf7 0%, #f1dfd8 100%)',
+          patternOpacity: '0.10',
+          patternColor: '%23b76e79'
+        }
+      },
+      burgundyVelvet: {
+        id: 'burgundyVelvet',
+        name: 'Deep Burgundy Velvet',
+        desc: 'Merah hati baldu & emas klasik',
+        swatchBg: '#2b0912',
+        swatchAccent: '#e2b857',
+        swatchSecondary: '#3d0e1b',
+        vars: {
+          bgPage: '#1c050b',
+          bgCard: '#2b0912',
+          bgBox: '#3a0d19',
+          bgNav: 'rgba(43, 9, 18, 0.95)',
+          textMain: '#fcf6ec',
+          textMuted: '#d8bfc4',
+          accent: '#e2b857',
+          accentLight: '#f6dc99',
+          accentText: '#2b0912',
+          border: 'rgba(226, 184, 87, 0.30)',
+          gateBg: 'radial-gradient(circle at center, #46101f 0%, #21060d 100%)',
+          patternOpacity: '0.11',
+          patternColor: '%23e2b857'
+        }
+      },
+      marbleEmerald: {
+        id: 'marbleEmerald',
+        name: 'Marble & Emerald',
+        desc: 'Marmar putih & hijau zamrud moden',
+        swatchBg: '#f6f9f7',
+        swatchAccent: '#0f5c44',
+        swatchSecondary: '#e6efe9',
+        vars: {
+          bgPage: '#e3ece6',
+          bgCard: '#f8fbf9',
+          bgBox: '#ffffff',
+          bgNav: 'rgba(248, 251, 249, 0.95)',
+          textMain: '#132a22',
+          textMuted: '#4c665c',
+          accent: '#0f5c44',
+          accentLight: '#c59b43',
+          accentText: '#ffffff',
+          border: 'rgba(15, 92, 68, 0.24)',
+          gateBg: 'radial-gradient(circle at center, #ffffff 0%, #dfece4 100%)',
+          patternOpacity: '0.09',
+          patternColor: '%230f5c44'
+        }
+      },
+      chinoiserieBlue: {
+        id: 'chinoiserieBlue',
+        name: 'Chinoiserie Blue & White',
+        desc: 'Biru porselin klasik & emas halus',
+        swatchBg: '#f4f8fc',
+        swatchAccent: '#1b4980',
+        swatchSecondary: '#e4eef8',
+        vars: {
+          bgPage: '#dfe9f4',
+          bgCard: '#f7fafe',
+          bgBox: '#ffffff',
+          bgNav: 'rgba(247, 250, 254, 0.95)',
+          textMain: '#132944',
+          textMuted: '#516985',
+          accent: '#1b4980',
+          accentLight: '#c89d47',
+          accentText: '#ffffff',
+          border: 'rgba(27, 73, 128, 0.25)',
+          gateBg: 'radial-gradient(circle at center, #ffffff 0%, #dce8f5 100%)',
+          patternOpacity: '0.11',
+          patternColor: '%231b4980'
+        }
+      }
+    };
+
+    // ==========================================
+    // STATE APLIKASI
+    // ==========================================
+    let state = {
+      theme: 'royalNoir',
+      title: 'Walimatulurus',
+      groomShort: 'Adam',
+      brideShort: 'Hawa',
+      groomFull: "Muhammad Adam Bin Dato' Ahmad",
+      brideFull: 'Nur Hawa Binti Haji Ibrahim',
+      parents: "Dato' Ahmad Bin Hassan & Datin Aminah Binti Yusof",
+      inviteText: "Dengan penuh kesyukuran ke hadrat Ilahi, kami menjemput Dato' / Datin / Tuan / Puan / Encik / Cik sekeluarga ke majlis perkahwinan putera kami",
+      date: '2026-12-20',
+      timeRange: '11:00 Pagi – 4:00 Petang',
+      countdown: '2026-12-20T11:00',
+      venue: 'Grand Ballroom, Bangi Avenue Convention Centre',
+      address: 'Persiaran Bangi Avenue, Taman Bangi Avenue, 43000 Kajang, Selangor',
+      googleMaps: 'https://maps.google.com/?q=Bangi+Avenue+Convention+Centre',
+      waze: 'https://waze.com/ul?q=Bangi+Avenue+Convention+Centre&navigate=yes',
+      schedules: [
+        { time: '11:00 Pagi', activity: 'Ketibaan Tetamu & Jamuan Makan' },
+        { time: '12:30 Tengah Hari', activity: 'Ketibaan Raja Sehari & Bersanding' },
+        { time: '01:30 Petang', activity: 'Sesi Bergambar & Ramah Mesra' },
+        { time: '04:00 Petang', activity: 'Majlis Bersurai' }
+      ],
+      whatsapp: '60123456789',
+      googleForm: '',
+      contacts: [
+        { name: "Dato' Ahmad (Bapa)", phone: '60123456789' },
+        { name: 'Datin Aminah (Ibu)', phone: '60129876543' }
+      ],
+      musicUrl: '',
+      prayer: 'Ya Allah, berkatilah majlis perkahwinan ini, limpahkanlah baraqah dan rahmat kepada kedua mempelai ini, kurniakanlah mereka zuriat yang soleh dan solehah serta kekalkanlah jodoh mereka hingga ke Jannah. Amin.'
+    };
+
+    let gateOpenedInPreview = false;
+
+    // ==========================================
+    // HELPER FUNCTIONS
+    // ==========================================
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function formatMalayDate(dateStr) {
+      if (!dateStr) return 'Ahad, 20 Disember 2026';
+      try {
+        const [y, m, d] = dateStr.split('-').map(Number);
+        const dt = new Date(y, m - 1, d);
+        const days = ['Ahad', 'Isnin', 'Selasa', 'Rabu', 'Khamis', 'Jumaat', 'Sabtu'];
+        const months = [
+          'Januari', 'Februari', 'Mac', 'April', 'Mei', 'Jun',
+          'Julai', 'Ogos', 'September', 'Oktober', 'November', 'Disember'
+        ];
+        return `${days[dt.getDay()]}, ${d} ${months[dt.getMonth()]} ${y}`;
+      } catch (e) {
+        return dateStr;
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').textContent = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3000);
+    }
+
+    // ==========================================
+    // RENDER THEME SELECTOR CARDS
+    // ==========================================
+    function renderThemeCards() {
+      const grid = document.getElementById('themeSelectorGrid');
+      grid.innerHTML = '';
+
+      Object.values(THEMES).forEach(theme => {
+        const isActive = state.theme === theme.id;
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = `text-left p-3 rounded-xl border transition-all flex items-center gap-3 ${
+          isActive
+            ? 'bg-slate-800/90 border-amber-500 ring-2 ring-amber-500/30'
+            : 'bg-slate-950/70 border-slate-800 hover:border-slate-600'
+        }`;
+
+        card.innerHTML = `
+          <div class="w-10 h-10 rounded-lg shrink-0 flex items-center justify-center border border-white/15 shadow-inner" style="background:${theme.swatchBg}">
+            <span class="w-4 h-4 rounded-full border border-white/30" style="background:${theme.swatchAccent}"></span>
+          </div>
+          <div class="min-w-0">
+            <div class="text-xs font-bold text-white truncate">${theme.name}</div>
+            <div class="text-[11px] text-slate-400 truncate">${theme.desc}</div>
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          state.theme = theme.id;
+          document.getElementById('activeThemeBadge').textContent = theme.name;
+          renderThemeCards();
+          updatePreview();
+        });
+
+        grid.appendChild(card);
+      });
+    }
+
+    // ==========================================
+    // RENDER DYNAMIC LISTS (ATUR CARA & HUBUNGI)
+    // ==========================================
+    function renderScheduleList() {
+      const container = document.getElementById('scheduleList');
+      container.innerHTML = '';
+
+      state.schedules.forEach((item, idx) => {
+        const row = document.createElement('div');
+        row.className = 'flex items-center gap-2';
+        row.innerHTML = `
+          <input type="text" data-idx="${idx}" data-field="time" value="${escapeHtml(item.time)}" placeholder="Masa (cth: 11:00 Pagi)" class="w-1/3 bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3 py-2 text-xs text-white outline-none" />
+          <input type="text" data-idx="${idx}" data-field="activity" value="${escapeHtml(item.activity)}" placeholder="Aktiviti" class="flex-1 bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3 py-2 text-xs text-white outline-none" />
+          <button type="button" data-remove="${idx}" class="p-2 rounded-xl bg-slate-950 hover:bg-rose-950/60 text-slate-400 hover:text-rose-400 border border-slate-800 transition" title="Buang baris">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        `;
+        container.appendChild(row);
+      });
+
+      container.querySelectorAll('input').forEach(inp => {
+        inp.addEventListener('input', e => {
+          const i = Number(e.target.dataset.idx);
+          const f = e.target.dataset.field;
+          state.schedules[i][f] = e.target.value;
+          updatePreview();
+        });
+      });
+
+      container.querySelectorAll('button[data-remove]').forEach(btn => {
+        btn.addEventListener('click', e => {
+          const i = Number(e.currentTarget.dataset.remove);
+          if (state.schedules.length > 1) {
+            state.schedules.splice(i, 1);
+            renderScheduleList();
+            updatePreview();
+          } else {
+            showToast('Sekurang-kurangnya satu baris atur cara diperlukan.');
+          }
+        });
+      });
+    }
+
+    function renderContactList() {
+      const container = document.getElementById('contactList');
+      container.innerHTML = '';
+
+      state.contacts.forEach((item, idx) => {
+        const row = document.createElement('div');
+        row.className = 'flex items-center gap-2';
+        row.innerHTML = `
+          <input type="text" data-idx="${idx}" data-field="name" value="${escapeHtml(item.name)}" placeholder="Nama & Hubungan" class="w-1/2 bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3 py-2 text-xs text-white outline-none" />
+          <input type="text" data-idx="${idx}" data-field="phone" value="${escapeHtml(item.phone)}" placeholder="60123456789" class="flex-1 bg-slate-950 border border-slate-700 focus:border-amber-500 rounded-xl px-3 py-2 text-xs text-white outline-none" />
+          <button type="button" data-remove="${idx}" class="p-2 rounded-xl bg-slate-950 hover:bg-rose-950/60 text-slate-400 hover:text-rose-400 border border-slate-800 transition" title="Buang wakil">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        `;
+        container.appendChild(row);
+      });
+
+      container.querySelectorAll('input').forEach(inp => {
+        inp.addEventListener('input', e => {
+          const i = Number(e.target.dataset.idx);
+          const f = e.target.dataset.field;
+          state.contacts[i][f] = e.target.value;
+          updatePreview();
+        });
+      });
+
+      container.querySelectorAll('button[data-remove]').forEach(btn => {
+        btn.addEventListener('click', e => {
+          const i = Number(e.currentTarget.dataset.remove);
+          if (state.contacts.length > 1) {
+            state.contacts.splice(i, 1);
+            renderContactList();
+            updatePreview();
+          } else {
+            showToast('Sekurang-kurangnya satu nombor hubungi diperlukan.');
+          }
+        });
+      });
+    }
+
+    // ==========================================
+    // PENJANA KOD HTML LENGKAP (STANDALONE)
+    // ==========================================
+    function generateCardHTML(isPreview = false) {
+      const t = THEMES[state.theme].vars;
+      const formattedDate = formatMalayDate(state.date);
+      const targetIso = state.countdown ? `${state.countdown}:00+08:00` : '2026-12-20T11:00:00+08:00';
+      const cleanWa = (state.whatsapp || '60123456789').replace(/[^0-9]/g, '');
+
+      const scheduleHtml = state.schedules
+        .map(
+          s => `
+          <div class="timeline-row">
+            <span class="timeline-time">${escapeHtml(s.time)}</span>
+            <span class="timeline-dot"></span>
+            <span class="timeline-act">${escapeHtml(s.activity)}</span>
+          </div>`
+        )
+        .join('');
+
+      const contactsHtml = state.contacts
+        .map(c => {
+          const cPhone = (c.phone || '').replace(/[^0-9]/g, '');
+          return `
+          <div class="contact-card">
+            <div class="contact-name">${escapeHtml(c.name)}</div>
+            <div class="contact-actions">
+              <a href="tel:+${cPhone}" class="icon-pill" title="Telefon">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+              </a>
+              <a href="https://wa.me/${cPhone}" target="_blank" rel="noopener" class="icon-pill" title="WhatsApp">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/></svg>
+              </a>
+            </div>
+          </div>`;
+        })
+        .join('');
+
+      const googleFormBtn = state.googleForm
+        ? `<a href="${escapeHtml(state.googleForm)}" target="_blank" rel="noopener" class="btn-outline">Isi Borang Google Form</a>`
+        : '';
+
+      const musicBlock = state.musicUrl
+        ? `
+        <audio id="bgMusic" loop preload="none">
+          <source src="${escapeHtml(state.musicUrl)}" type="audio/mpeg">
+        </audio>
+        <button id="musicToggle" class="music-fab" aria-label="Main/Henti Muzik" title="Muzik Latar">
+          <svg id="musicIconOn" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z"/></svg>
+        </button>`
+        : '';
+
+      const initialGateClass = isPreview && gateOpenedInPreview ? 'gate-overlay opened hidden' : 'gate-overlay';
+
+      return `<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${escapeHtml(state.title)} — ${escapeHtml(state.groomShort)} & ${escapeHtml(state.brideShort)}</title>
+  <meta property="og:title" content="${escapeHtml(state.title)} — ${escapeHtml(state.groomShort)} & ${escapeHtml(state.brideShort)}" />
+  <meta property="og:description" content="Jemputan ke majlis perkahwinan pada ${escapeHtml(formattedDate)} di ${escapeHtml(state.venue)}." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: ${t.bgPage};
+      --bg-card: ${t.bgCard};
+      --bg-box: ${t.bgBox};
+      --bg-nav: ${t.bgNav};
+      --text-main: ${t.textMain};
+      --text-muted: ${t.textMuted};
+      --accent: ${t.accent};
+      --accent-light: ${t.accentLight};
+      --accent-text: ${t.accentText};
+      --border: ${t.border};
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Bingkai Kad Mudah Alih */
+    .card-shell {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      min-height: 100vh;
+      background-color: var(--bg-card);
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='${t.patternColor}' stroke-opacity='${t.patternOpacity}' stroke-width='1'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3Ccircle cx='30' cy='30' r='8'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      padding-bottom: 86px;
+      overflow: hidden;
+    }
+
+    /* Pintu Gerbang / Sampul Pembukaan */
+    .gate-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      pointer-events: auto;
+    }
+    .gate-overlay.hidden { display: none; }
+
+    .gate-inner {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      height: 100%;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .gate-door {
+      width: 50%;
+      height: 100%;
+      background: ${t.gateBg};
+      border-color: var(--border);
+      transition: transform 1.1s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    .gate-left { border-right: 1px solid var(--border); }
+    .gate-right { border-left: 1px solid var(--border); }
+
+    .gate-overlay.opened .gate-left { transform: translateX(-102%); }
+    .gate-overlay.opened .gate-right { transform: translateX(102%); }
+    .gate-overlay.opened .gate-seal { opacity: 0; transform: translate(-50%, -50%) scale(0.8); pointer-events: none; }
+
+    .gate-seal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 240px;
+      text-align: center;
+      padding: 28px 20px;
+      border-radius: 28px;
+      background: var(--bg-box);
+      border: 1.5px solid var(--accent);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      transition: all 0.55s ease;
+      z-index: 10;
+    }
+
+    .seal-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .seal-names {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.35rem;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .btn-open-card {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 24px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: var(--accent-text);
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      animation: pulseBtn 2s infinite;
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+
+    /* Seksyen Hero Utama */
+    .hero {
+      position: relative;
+      padding: 44px 24px 32px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ornament {
+      width: 110px;
+      height: 24px;
+      margin: 0 auto 12px;
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .couple-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.1rem;
+      line-height: 1.12;
+      color: var(--text-main);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .couple-amp {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin: 2px 0;
+    }
+
+    .hero-date-pill {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 7px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-box);
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      color: var(--accent);
+    }
+
+    /* Kandungan Kad */
+    .content-wrap {
+      padding: 22px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .lux-box {
+      background: var(--bg-box);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+      position: relative;
+    }
+
+    .lux-box::before {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      pointer-events: none;
+      opacity: 0.65;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .arabic-salam {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .parents-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 10px 0;
+      line-height: 1.45;
+    }
+
+    .body-text {
+      font-size: 0.86rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    .full-names {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    /* Countdown */
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .cd-cell {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 4px;
+    }
+
+    .cd-val {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .cd-lbl {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Butang Aksi */
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn-primary, .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: var(--accent-text);
+      border: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:active, .btn-outline:active { transform: scale(0.97); }
+
+    /* Atur Cara Timeline */
+    .timeline {
+      text-align: left;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .timeline-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.84rem;
+    }
+
+    .timeline-time {
+      width: 36%;
+      font-weight: 700;
+      color: var(--accent);
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .timeline-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .timeline-act {
+      flex: 1;
+      color: var(--text-main);
+      line-height: 1.4;
+    }
+
+    /* Hubungi Keluarga */
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+    }
+
+    .contact-name {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .icon-pill {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--accent-text);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    /* Doa & Footer */
+    .prayer-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--text-main);
+    }
+
+    /* Muzik Floating Button */
+    .music-fab {
+      position: fixed;
+      top: 16px;
+      right: max(16px, calc(50% - 204px));
+      z-index: 40;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--bg-box);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+
+    .music-fab.playing {
+      animation: spinSlow 5s linear infinite;
+    }
+
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Navigasi Bawah Tetap */
+    .bottom-dock {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 440px;
+      background: var(--bg-nav);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      padding: 8px 4px;
+      z-index: 50;
+    }
+
+    .dock-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.66rem;
+      font-weight: 600;
+      padding: 4px 2px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .dock-item:hover, .dock-item:focus {
+      color: var(--accent);
+    }
+
+    /* Modal RSVP */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-backdrop.active { display: flex; }
+
+    .modal-card {
+      width: 100%;
+      max-width: 390px;
+      background: var(--bg-box);
+      border: 1.5px solid var(--accent);
+      border-radius: 22px;
+      padding: 22px 18px;
+      position: relative;
+      color: var(--text-main);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.84rem;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Pintu Gerbang / Sampul Digital -->
+  <div id="gateOverlay" class="${initialGateClass}">
+    <div class="gate-inner">
+      <div class="gate-door gate-left"></div>
+      <div class="gate-door gate-right"></div>
+      <div class="gate-seal">
+        <div class="seal-tag">${escapeHtml(state.title)}</div>
+        <div class="seal-names">
+          ${escapeHtml(state.groomShort)}<br>
+          <span style="font-size:1.3rem; color:var(--accent);">&amp;</span><br>
+          ${escapeHtml(state.brideShort)}
+        </div>
+        <button id="btnOpenCard" class="btn-open-card" type="button">
+          <span>BUKA KAD</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  ${musicBlock}
+
+  <main class="card-shell">
+    <!-- Hero -->
+    <header class="hero">
+      <svg class="ornament" viewBox="0 0 120 24" fill="none" stroke="currentColor" stroke-width="1.3">
+        <path d="M4 12h38M78 12h38M60 3l7 9-7 9-7-9 7-9zM48 12l4-4 4 4-4 4-4-4zM64 12l4-4 4 4-4 4-4-4z"/>
+      </svg>
+      <div class="hero-subtitle">${escapeHtml(state.title)}</div>
+      <h1 class="couple-script">
+        ${escapeHtml(state.groomShort)}
+        <span class="couple-amp">&amp;</span>
+        ${escapeHtml(state.brideShort)}
+      </h1>
+      <div class="hero-date-pill">${escapeHtml(formattedDate)}</div>
+    </header>
+
+    <div class="content-wrap">
+      <!-- Jemputan & Keluarga -->
+      <section class="lux-box">
+        <div class="arabic-salam">Assalamualaikum Warahmatullahi Wabarakatuh</div>
+        <div class="parents-name">${escapeHtml(state.parents)}</div>
+        <p class="body-text">${escapeHtml(state.inviteText)}</p>
+        <div class="full-names">
+          ${escapeHtml(state.groomFull)}<br>
+          <span style="color:var(--accent); font-style:italic; font-size:1rem;">dengan pasangannya</span><br>
+          ${escapeHtml(state.brideFull)}
+        </div>
+      </section>
+
+      <!-- Tarikh & Kiraan Detik -->
+      <section class="lux-box" id="sec-tarikh">
+        <h2 class="section-title">Tarikh &amp; Masa</h2>
+        <p style="font-weight:700; font-size:0.95rem; margin-bottom:4px;">${escapeHtml(formattedDate)}</p>
+        <p class="body-text">${escapeHtml(state.timeRange)}</p>
+
+        <div class="countdown-grid">
+          <div class="cd-cell"><div class="cd-val" id="cdDays">00</div><div class="cd-lbl">Hari</div></div>
+          <div class="cd-cell"><div class="cd-val" id="cdHours">00</div><div class="cd-lbl">Jam</div></div>
+          <div class="cd-cell"><div class="cd-val" id="cdMins">00</div><div class="cd-lbl">Minit</div></div>
+          <div class="cd-cell"><div class="cd-val" id="cdSecs">00</div><div class="cd-lbl">Saat</div></div>
+        </div>
+      </section>
+
+      <!-- Lokasi -->
+      <section class="lux-box" id="sec-lokasi">
+        <h2 class="section-title">Lokasi Majlis</h2>
+        <p style="font-weight:700; font-size:0.95rem; margin-bottom:6px;">${escapeHtml(state.venue)}</p>
+        <p class="body-text">${escapeHtml(state.address)}</p>
+
+        <div class="btn-row">
+          <a href="${escapeHtml(state.googleMaps || '#')}" target="_blank" rel="noopener" class="btn-primary">Google Maps</a>
+          <a href="${escapeHtml(state.waze || '#')}" target="_blank" rel="noopener" class="btn-outline">Waze</a>
+        </div>
+      </section>
+
+      <!-- Atur Cara -->
+      <section class="lux-box" id="sec-aturcara">
+        <h2 class="section-title">Atur Cara Majlis</h2>
+        <div class="timeline">
+          ${scheduleHtml}
+        </div>
+      </section>
+
+      <!-- RSVP & Ucapan -->
+      <section class="lux-box" id="sec-rsvp">
+        <h2 class="section-title">RSVP &amp; Ucapan</h2>
+        <p class="body-text">Kehadiran dan doa restu anda amat kami hargai untuk menyerikan lagi majlis ini.</p>
+        <div class="btn-row">
+          <button type="button" id="btnOpenRsvpModal" class="btn-primary">Sahkan Kehadiran &amp; Ucapan</button>
+          ${googleFormBtn}
+        </div>
+      </section>
+
+      <!-- Hubungi Keluarga -->
+      <section class="lux-box" id="sec-hubungi">
+        <h2 class="section-title">Hubungi Keluarga</h2>
+        <div class="contact-list">
+          ${contactsHtml}
+        </div>
+      </section>
+
+      <!-- Doa -->
+      <section class="lux-box">
+        <p class="prayer-quote">"${escapeHtml(state.prayer)}"</p>
+        <p style="margin-top:12px; font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:2px; color:var(--accent);">
+          # ${escapeHtml(state.groomShort)}${escapeHtml(state.brideShort)}
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Navigasi Bawah -->
+  <nav class="bottom-dock">
+    <a href="#sec-tarikh" class="dock-item">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+      <span>Tarikh</span>
+    </a>
+    <a href="#sec-lokasi" class="dock-item">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+      <span>Lokasi</span>
+    </a>
+    <a href="#sec-aturcara" class="dock-item">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span>Atur Cara</span>
+    </a>
+    <button type="button" id="dockRsvpBtn" class="dock-item">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+      <span>RSVP</span>
+    </button>
+    <a href="#sec-hubungi" class="dock-item">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+      <span>Hubungi</span>
+    </a>
+  </nav>
+
+  <!-- Modal RSVP WhatsApp -->
+  <div id="rsvpModal" class="modal-backdrop">
+    <div class="modal-card">
+      <button type="button" id="btnCloseRsvpModal" class="modal-close">&times;</button>
+      <h3 class="section-title" style="text-align:center; margin-bottom:14px;">Sahkan Kehadiran</h3>
+      <form id="rsvpForm">
+        <div class="form-group">
+          <label class="form-label">Nama Tetamu</label>
+          <input type="text" id="guestName" class="form-control" placeholder="Nama penuh anda" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Status Kehadiran</label>
+          <select id="guestStatus" class="form-control">
+            <option value="Hadir">Hadir</option>
+            <option value="Tidak Dapat Hadir">Tidak Dapat Hadir</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Bilangan Kehadiran (Pax)</label>
+          <input type="number" id="guestPax" class="form-control" min="1" max="15" value="2" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Ucapan Untuk Pengantin</label>
+          <textarea id="guestWish" rows="2" class="form-control" placeholder="Selamat pengantin baru..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; margin-top:6px;">Hantar ke WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Animasi Pembukaan Pintu Gerbang
+    const gateOverlay = document.getElementById('gateOverlay');
+    const btnOpenCard = document.getElementById('btnOpenCard');
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+
+    if (btnOpenCard) {
+      btnOpenCard.addEventListener('click', () => {
+        gateOverlay.classList.add('opened');
+        setTimeout(() => {
+          gateOverlay.classList.add('hidden');
+        }, 1150);
+
+        if (bgMusic) {
+          bgMusic.play().then(() => {
+            if (musicToggle) musicToggle.classList.add('playing');
+          }).catch(() => {});
+        }
+        ${isPreview ? "window.parent.postMessage('gateOpened', '*');" : ''}
+      });
+    }
+
+    if (musicToggle && bgMusic) {
+      musicToggle.addEventListener('click', () => {
+        if (bgMusic.paused) {
+          bgMusic.play();
+          musicToggle.classList.add('playing');
+        } else {
+          bgMusic.pause();
+          musicToggle.classList.remove('playing');
+        }
+      });
+    }
+
+    // Kiraan Detik (Countdown)
+    const targetTime = new Date("${targetIso}").getTime();
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = targetTime - now;
+      if (isNaN(targetTime) || diff <= 0) return;
+
+      document.getElementById('cdDays').textContent = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+      document.getElementById('cdHours').textContent = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+      document.getElementById('cdMins').textContent = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+      document.getElementById('cdSecs').textContent = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Modal RSVP
+    const rsvpModal = document.getElementById('rsvpModal');
+    const openBtns = [document.getElementById('btnOpenRsvpModal'), document.getElementById('dockRsvpBtn')];
+    openBtns.forEach(btn => {
+      if (btn) btn.addEventListener('click', () => rsvpModal.classList.add('active'));
+    });
+    document.getElementById('btnCloseRsvpModal').addEventListener('click', () => rsvpModal.classList.remove('active'));
+
+    document.getElementById('rsvpForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('guestName').value.trim();
+      const status = document.getElementById('guestStatus').value;
+      const pax = document.getElementById('guestPax').value;
+      const wish = document.getElementById('guestWish').value.trim();
+
+      const msg = \`Assalamualaikum, saya *\${name}* ingin mengesahkan kehadiran ke majlis ${escapeHtml(state.groomShort)} & ${escapeHtml(state.brideShort)}.\\n\\n• Status: *\${status}*\\n• Bilangan: *\${pax} orang*\\n• Ucapan: \${wish || 'Selamat Pengantin Baru!'}\`;
+      const waUrl = \`https://wa.me/${cleanWa}?text=\${encodeURIComponent(msg)}\`;
+      window.open(waUrl, '_blank', 'noopener');
+      rsvpModal.classList.remove('active');
+    });
+  </script>
+</body>
+</html>`;
+    }
+
+    // ==========================================
+    // KEMAS KINI PRATONTON LANGSUNG
+    // ==========================================
+    function updatePreview() {
+      const iframe = document.getElementById('previewIframe');
+      iframe.srcdoc = generateCardHTML(true);
+    }
+
+    // ==========================================
+    // BIND INPUT BORANG KE STATE
+    // ==========================================
+    function bindInputs() {
+      const mapping = [
+        ['inTitle', 'title'],
+        ['inGroomShort', 'groomShort'],
+        ['inBrideShort', 'brideShort'],
+        ['inGroomFull', 'groomFull'],
+        ['inBrideFull', 'brideFull'],
+        ['inParents', 'parents'],
+        ['inInviteText', 'inviteText'],
+        ['inDate', 'date'],
+        ['inTimeRange', 'timeRange'],
+        ['inCountdown', 'countdown'],
+        ['inVenue', 'venue'],
+        ['inAddress', 'address'],
+        ['inGoogleMaps', 'googleMaps'],
+        ['inWaze', 'waze'],
+        ['inWhatsapp', 'whatsapp'],
+        ['inGoogleForm', 'googleForm'],
+        ['inMusicUrl', 'musicUrl'],
+        ['inPrayer', 'prayer']
+      ];
+
+      mapping.forEach(([elId, key]) => {
+        const el = document.getElementById(elId);
+        if (!el) return;
+        el.addEventListener('input', e => {
+          state[key] = e.target.value;
+          updatePreview();
+        });
+      });
+
+      // Tambah baris atur cara
+      document.getElementById('btnAddSchedule').addEventListener('click', () => {
+        state.schedules.push({ time: '02:00 Petang', activity: 'Acara Tambahan' });
+        renderScheduleList();
+        updatePreview();
+      });
+
+      // Tambah baris hubungi
+      document.getElementById('btnAddContact').addEventListener('click', () => {
+        state.contacts.push({ name: 'Wakil Keluarga', phone: '60123456789' });
+        renderContactList();
+        updatePreview();
+      });
+
+      // Ulang animasi sampul
+      document.getElementById('btnReplayGate').addEventListener('click', () => {
+        gateOpenedInPreview = false;
+        updatePreview();
+      });
+
+      // Terima mesej daripada iframe apabila pengguna buka kad
+      window.addEventListener('message', e => {
+        if (e.data === 'gateOpened') {
+          gateOpenedInPreview = true;
+        }
+      });
+
+      // Salin Kod HTML ke Clipboard
+      document.getElementById('btnCopyCode').addEventListener('click', () => {
+        const fullCode = generateCardHTML(false);
+        const ta = document.createElement('textarea');
+        ta.value = fullCode;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          showToast('Kod HTML (index.html) berjaya disalin!');
+        } catch (err) {
+          showToast('Gagal menyalin kod. Sila guna butang Muat Turun.');
+        }
+        document.body.removeChild(ta);
+      });
+
+      // Muat Turun index.html
+      document.getElementById('btnDownloadHtml').addEventListener('click', () => {
+        const fullCode = generateCardHTML(false);
+        const blob = new Blob([fullCode], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'index.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('Fail index.html sedang dimuat turun!');
+      });
+
+      // Modal Panduan GitHub
+      const guideModal = document.getElementById('guideModal');
+      document.getElementById('btnGuideModal').addEventListener('click', () => {
+        guideModal.classList.remove('hidden');
+        guideModal.classList.add('flex');
+      });
+      [document.getElementById('btnCloseGuide'), document.getElementById('btnDoneGuide')].forEach(btn => {
+        btn.addEventListener('click', () => {
+          guideModal.classList.add('hidden');
+          guideModal.classList.remove('flex');
+        });
+      });
+    }
+
+    // Inisialisasi Aplikasi
+    window.addEventListener('DOMContentLoaded', () => {
+      renderThemeCards();
+      renderScheduleList();
+      renderContactList();
+      bindInputs();
+      updatePreview();
+    });
+  </script>
+</body>
+</html>
